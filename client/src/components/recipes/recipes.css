@@ -1,0 +1,31 @@
+.recipes {
+    flex: 9;
+    margin: 20px;
+    padding: 30px 20px;
+    background-color: #fdfbfb;
+    border-radius: 10px;
+   
+  } 
+
+  
+ .recipesGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;       
+    
+  }
+
+  @media (max-width: 1024px) {
+    .recipesGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .recipesGrid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }

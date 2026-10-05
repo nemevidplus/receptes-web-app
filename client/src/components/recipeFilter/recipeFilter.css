@@ -1,0 +1,23 @@
+.recipeFilterItem {
+    font-family: "Varela Round", Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer !important;
+    z-index: 101;
+    color: #444;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(190, 150, 86, 0.35);
+    user-select: none;
+  }
+  
+  .recipeFilterItem:hover {
+    background: rgba(190, 150, 86, 0.1);
+  }
+  
+  .recipeFilterItem.active {
+    background:  #f06846;;
+    color: white;
+    border-color: #eb9376;
+  }
+  

@@ -1,0 +1,105 @@
+
+
+.userName {
+    text-transform: capitalize; 
+  /* font-weight: bold; */
+  color: white;
+}
+
+
+
+.myKitchenMealCard {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+  width: 205px; 
+  height: 280px;
+ max-width: none; /* Vedd ki a 220px-es korlátot! */
+  display: flex;
+  flex-direction: column;
+  
+  transition: transform 0.25s ease;
+  position: relative;
+}
+.mealCardBodyMyKitchen {
+  /* padding: 10px 5px 70px 5px; */
+  padding-top: 3px;
+  padding-bottom: 50px;
+  text-align: center;
+  height: 100px !important;
+  
+}
+
+.myKitchenMealCard img {
+  width: 100%;
+  height: 150px;
+  min-height: 150px;
+  object-fit: cover;
+  filter: sepia(0.3) contrast(1.05) brightness(0.95) saturate(1.1);
+  transition: filter 0.3s ease;
+  margin-bottom: 0px;
+}
+
+
+.mealCardOverlay .mealRemoveBtnMyKitchen {
+  display: flex ;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.mealplanOldTitle {
+  text-align: center;
+}
+@media (max-width: 1024px) {
+  .myKitchenMealCard {
+    width: 300px;
+    
+  }
+}
+
+@media (max-width: 920px) {
+  .myKitchenMealCard{
+    width: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .myKitchenMealCard {
+    width: 100px;
+  
+     height: 110px;
+     position: relative !important;
+     overflow: hidden !important;
+   }
+ 
+   .myKitchenMealCard img {
+     height: 100%;
+     width: 100%;
+     object-fit: cover;
+   }
+   
+ 
+    .myKitchenMealCardBody {
+     display: none;
+    }
+    .mealRemoveBtn,
+    .mealRemoveBtnMyKitchen {
+      display: none !important;
+    }
+    .deleteMyPlanBtn {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+

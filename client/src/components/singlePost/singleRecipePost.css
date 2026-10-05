@@ -1,0 +1,269 @@
+
+
+.singlePost {
+    flex: 9;
+  }
+  
+  .singlePostWrapper {
+    display: grid;
+    grid-template-columns:  1fr 1fr;
+    gap: 40px;
+    max-width: 1100px;
+    align-items: start;
+    padding: 20px;
+   margin: 20px;
+   margin-top: 100px;
+   border-radius: 10px;
+
+   
+  }
+  
+  .singlePostTitle {
+    text-align: center;
+    margin: 10px;
+    font-size: 28px;
+    font-family: "Lora", sans-serif;
+  }
+
+  .singleRecipeWrap {
+    /* padding: 20px;
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    font-size: 38px;
+    font-family: "Lora", sans-serif;
+    text-align: center;
+
+    border: none;
+    border-bottom: 10px; */
+
+
+    display: flex;
+    flex-direction: column;
+    /* margin: 20px;
+    padding: 30px 20px; */
+    background-color: #fdfbfb;
+    border-radius: 10px;
+    font-family: "Lora", sans-serif;
+    font-size: 13px;
+    color: #222;
+    padding-bottom: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
+    height:550px;
+    justify-content: flex-start;
+   
+  }
+  .singlePostImg {
+    
+    width: 100%;
+    height: 550px;
+    border-radius: 5px 5px 0 0;
+    object-fit: cover;
+    filter: sepia(0.3) contrast(1.05) brightness(0.95) saturate(1.1);
+    transition: filter 0.3s ease;
+  }
+
+
+  .singlePostImg:hover {
+    filter: sepia(0) contrast(1) brightness(1) saturate(1);
+   }
+ 
+.recipeCardNav{
+    margin: 20px 0 20px;
+    padding: 0;
+    border-bottom: 1px solid teal;
+}
+
+ 
+.recipeCardNav li {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.recipeCardNav h3 {
+   margin: 0;
+   padding: 0;
+}
+
+
+.recipeCardNav h3::after {
+    content: '';
+    display: block;
+    width: 0%;
+    padding-top: 10px;
+    margin: 0 auto;
+    border-bottom: 5px solid teal;
+    transition: width 250ms ease-in-out 0s;
+ }
+
+
+ .recipeCardNav h3:hover {
+    cursor: pointer;
+  }
+  .recipeCardNav h3:hover:after, h3.active:after {
+   width: 100%; 
+  }
+ 
+
+  /* Ingredients list */
+.recipeCardIngredients {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+    column-count: 1;
+  }
+  
+  .recipeCardIngredients li {
+    margin-bottom: 8px;
+  }
+  
+  .recipeCardIngredients li::before {
+    content: "•";
+    color: teal;
+    margin-right: 8px;
+  }
+  
+  /* Method */
+  .recipeCardMethod {
+    margin-left: 10px;
+  }
+  
+  .instructions {
+    margin: 0;
+    white-space: pre-wrap;
+    line-height: 1.7;
+    color: #222;
+   
+  }
+  
+  /* Responsive: 2 oszlopos hozzávalók nagyobb képernyőn */
+  @media (min-width: 700px) {
+    .recipeCardIngredients {
+      column-count: 2;
+    }
+    }
+
+    @media (max-width: 700px) {
+      .singlePostWrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+     
+      }
+
+      .singlePostImg {
+    
+     
+        height: 250px;
+      
+      }
+
+      .singleRecipeWrap {
+        width: 100%;
+      }
+      
+      }
+
+  .addToPlanBtn{
+    margin-top: 10px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    background: teal;
+    color: white;
+    cursor: pointer;
+    font-family: "Lora", sans-serif;
+  }
+  
+  .addToPlanBox{
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+
+ 
+
+.recipeOwnerActionBtns {
+display: flex;
+gap: 12px;
+margin: 15px 0;
+}
+
+.editRecipeBtn,
+.deleteRecipeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 20px; /* Szép, lekerekített sarkok */
+  border: 1px solid transparent;
+  font-family: "Lora", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.editRecipeBtn {
+  background-color: #f5f5f5;
+  color: #333333;
+  border: 1px solid #e0e0e0;
+  margin: 0;
+}
+
+.editRecipeBtn:hover {
+  background-color: #222222;
+  color: #ffffff;
+  border-color: #222222;
+  transform: translateY(-1px);
+}
+
+/* Törlés gomb (Figyelmeztető gomb) */
+.deleteRecipeBtn {
+  background-color: #fff0f0;
+  color: lightcoral;
+  border: 1px solid #ffcdd2;
+  margin: 0;
+}
+
+.deleteRecipeBtn:hover {
+  background-color: #e53935;
+  color: #ffffff;
+  border-color: #e53935;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(229, 57, 53, 0.2);
+}
+
+
+
+.singleRecipeTitleWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.stirringUtensil {
+  width: 42px;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  animation: spinOnce 2s linear;
+}
+
+@keyframes spinOnce {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}

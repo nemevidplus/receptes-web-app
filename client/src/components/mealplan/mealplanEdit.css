@@ -1,0 +1,61 @@
+.mealplanEdit {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    font-family: "Lora", sans-serif;
+  }
+  
+  .mealplanEdit h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    text-align: center;
+    
+  }
+  
+  .mealplanEditInput {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .mealplanEditTextarea {
+    width: 100%;
+    min-height: 140px;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+  }
+  
+  .mealplanEditMeta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 13px;
+    color: #666;
+  }
+  
+  .mealplanEditBtn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: turquoise;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .mealplanEditBtn:hover {
+    background-color: turquoise;
+  }
+  

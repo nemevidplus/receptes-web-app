@@ -1,0 +1,8 @@
+.single {
+    display: flex;
+    align-items: flex-start;
+}
+
+.single .sidebar {
+    margin-top: 120px;
+}

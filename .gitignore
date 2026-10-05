@@ -1,0 +1,9 @@
+node_modules
+.env
+.DS_Store
+api/images
+lepesek.txtclient/src/assets/fozz-video.mp4
+client/src/assets/*.mp4
+lepesek.txt
+node_modules/
+.env

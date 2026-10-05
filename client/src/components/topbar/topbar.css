@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Damion&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+
+.top{
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+    height: 75px;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    font-family: "Josefin Sans", sans-serif;
+    z-index: 1000;
+    margin-top: 0px;
+    margin: 0;
+    padding: 0 20px;
+    border: none;
+    
+}
+
+.topLeft, .topRight{
+    flex: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    /* padding-right: 20px; */
+}
+.topLeft {
+
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+}
+
+.topRight {
+  justify-content: flex-end;
+}
+
+.slogen {
+  /* font-family: "Damion", cursive; */
+  /* font-family: "Caveat", cursive; */
+  font-family: "Waiting for the Sunrise", cursive;
+  font-weight: 400;
+  font-size: 24px;
+  color: #26CFD8;
+  white-space: nowrap;
+  letter-spacing: 1px;
+  line-height: 1;
+  transform: translateY(-2px);
+  display: flex;
+  align-items: center;
+}
+
+.topCenter{
+    flex: 7;
+    display: flex;
+    justify-content: center;
+    padding: 0 30px;
+   
+}
+
+.topIcon{
+    font-style: 20px;
+    margin-right: 10px;
+    color: #444;
+    cursor: pointer;
+}
+
+
+
+.topImage{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    cursor: pointer;
+    object-position: center 10%;
+    cursor: pointer;
+    flex-shrink: 0;
+    
+}
+
+.topList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    gap: 15px;
+}
+
+.topListItem{
+    margin-right: 0px;
+    font-size: 16px;
+    font-weight: 300;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.topSearchIcon {
+    font-size: 18px;
+    color: #666;
+    cursor: pointer;
+    margin-left: 15px;
+  }
+
+  .linkTop{
+    text-decoration: none;
+    color: inherit
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+    width: 34px;
+    height: 16px;
+    flex-shrink: 0;
+    cursor: pointer;
+    margin-left: 0px;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger span {
+    
+    height: 2px;
+    background-color: #444;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  @media (max-width: 1300px) {
+
+   
+    .topList {
+        gap: 10px;
+    }
+    .topListItem {
+        font-size: 14px;
+    }
+    .slogen {
+        font-size: 20px;
+    }
+}
+
+  @media (max-width: 1150px) {
+    .slogen {
+      font-size: 18px; 
+    }
+    .topListItem {
+      margin-right: 10px;
+      font-size: 15px;
+    }
+    .topCenter {
+      display: none; 
+    }
+  
+    .hamburger {
+      display: flex; 
+    }
+  
+    .topLeft {
+      flex: 1;
+    }
+  
+    .topRight {
+      flex: 1;
+      gap: 20px;
+    }
+  
+    .top {
+      height: 70px;
+    }
+  }
+  @media (max-width: 768px) {
+   
+    .hamburger {
+      display: flex;
+      width: 26px !important;
+    }
+
+  
+    .topCenter {
+      display: none;
+    }
+    .top {
+        margin-top: 0;
+        height: 70px;
+        /* padding: 10px; */
+        padding-left: 15px;
+      }
+    
+      .mobileMenu {
+        top: 70px;
+      }
+      .topLoginList {
+        display: none;
+      }
+      /* .topRight {
+        justify-content: flex-end;
+        gap: 15px;
+        padding-right: 15px;
+      } */
+      .topLeft {
+        flex: 8;
+      }
+      .slogen {
+        /* font-size: 16px;
+        white-space: normal; 
+        text-align: left;
+        display: block; */
+        display: none
+      }
+    
+      .dot {
+        display: inline; 
+      }
+    
+      .topRight {
+        flex: 2;
+        display: flex;
+        align-items: center;
+        padding-right: 10px;
+      }
+  }
+
+  .mobileMenu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+  .mobileMenu > *:last-child {
+    border-bottom: none;
+  }
+  .mobileLink {
+    padding: 12px 0;
+    text-decoration: none;
+    color: #222;
+    font-size: 18px;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 300;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+  }
+
+  /* @media (min-width: 769px) {
+    .mobileMenu {
+      display: none;
+    }
+  } */
+
+
+  .inlineSearchBox {
+    display:flex;
+    align-items: center;
+    position: relative;
+    background-color: transparent;
+    border-radius: 20px;
+    padding: 4px;
+    margin-left:10px;
+    transition: all 0.3s ease;
+  }
+
+  .inlineSearchBox.open {
+    background-color: #f0f0f0;
+    padding-left: 10px;
+  }
+
+
+
+.inlineSearchBox .topSearchIcon {
+  margin-left: 0;
+  font-size: 18px;
+  color: #666;
+  cursor: pointer;
+  z-index: 2;
+}
+
+
+.inlineSearchInput {
+  width: 0;
+  opacity: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  transition: width 0.3s ease, opacity 0.2s ease, padding 0.3s ease;
+  padding: 0;
+}
+
+
+.inlineSearchBox.open .inlineSearchInput {
+  width: 140px;
+  opacity: 1;
+  padding: 4px 8px;
+}

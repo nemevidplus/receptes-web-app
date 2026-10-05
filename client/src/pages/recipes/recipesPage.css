@@ -1,0 +1,169 @@
+
+.recipesPage {
+    flex: 9;
+    /* margin: 0 10px !important;
+    padding: 10px; */
+    background-color: #fdfbfb;
+    border-radius: 10px;
+    min-width: 0;
+    /* margin-left: 120px; */
+  }
+
+
+
+
+ 
+   @media (max-width: 1024px) {
+
+      }
+     
+     @media (max-width: 768px) {
+      
+     
+     }
+
+  .recipeFilterNav {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    gap: 10px;
+
+    /* margin: 20px;
+    padding: 30px 20px; */
+    /* padding: 0;
+    margin: 10px 0 20px 0; */
+    flex-wrap: wrap;
+    /* margin-left: 30px !important; */
+    z-index: 100;
+    pointer-events: auto !important;
+    width: 100%;
+    max-width: 700px;
+    
+  }
+
+  .recipeFilterNav .recipesTab {
+    color:white;
+    background-color: darkturquoise;
+
+  }
+
+  .mobileTagCloud {
+    display: none;
+   
+  }
+
+  .tagCloudHeader {
+    display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+    gap: 1px;
+    margin-bottom: 0px;
+    /* margin-top: 10px;
+    padding: 0 20px; */
+  }
+  
+  .tagCloudIcon {
+    width: 55px;
+    height: auto;
+    /* flex-shrink: 0; */
+    /* margin-top: 26px;
+    margin-left: 0;
+    margin-left: 60px; */
+  
+  }
+
+  .recipeScopeSwitch {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .recipeScopeSwitch button {
+    padding: 8px 14px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .activeScopeBtn {
+    background: #111;
+    color: white;
+    border-color: #111;
+  }
+
+  @media (max-width: 1024px) {
+    .home {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    
+    .mobileTagCloud {
+      display: block;
+      width: 100%;
+      /* margin: 0 auto 15px;   */
+      /* padding: 0 20px;  */
+      position: relative;
+      z-index: 10;
+     
+    }
+
+    .tagCloudHeader {
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+
+    }
+
+    .sidebarItem {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .sidebarTitle {
+      display: none;
+      cursor: pointer;
+    }
+    .recipesPage {
+      width: 100%;
+      margin: 5px 0;
+      padding: 20px;
+    }
+
+    .recipeFilterNav {
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .sidebar {
+      display: none;
+    }
+  } 
+  
+  @media (max-width: 768px) {
+    .home {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .mobileTagCloud{
+      margin: 5px 0;
+      padding: 0 10px;
+    }
+  
+    .recipesPage {
+      width: 100%;
+      margin: 0;
+      padding: 10px;
+    }
+  
+    .recipeFilterNav {
+      justify-content: center;
+      gap: 8px;
+    }
+  }

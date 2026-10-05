@@ -1,0 +1,186 @@
+.header {
+  
+
+    height: 480px;
+    width: 100%;
+     background-size: cover;
+     background-position: center 35% !important;
+     /* background-attachment: fixed; */
+     background-attachment: scroll;
+     background-repeat: no-repeat;
+     /* margin-top: 75px; */
+    /* overflow: hidden; */
+
+     position: relative;
+     display: block;
+     filter: sepia(0.6) contrast(1.1) brightness(0.85) saturate(1.3);
+    transition: filter 0.25s ease;
+    will-change: filter;
+     transform: translateZ(0);
+  
+   }
+  
+   .header:hover {
+ 
+    filter: sepia(0) contrast(1) brightness(1) saturate(1);
+   }
+   
+   .headerOverlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 20%;
+    position: relative;
+    background: linear-gradient(to bottom, rgba(235, 231, 231, 0.1) 0%, rgba(0,0,0,0) 1%);
+ 
+   }
+  
+   .mealplanSlogen {
+   
+    font-family: "Waiting for the Sunrise", cursive;
+    font-weight: 400;
+    font-size: 54px;
+    color: #ffff;
+    white-space: nowrap;
+    letter-spacing: 1px;
+    line-height: 1;
+    transform: translateY(-2px);
+  
+    align-items: center;
+    /* margin:0 auto 500px auto; */
+
+    position: absolute;
+    top: 120px; 
+    left: 50%;
+    transform: translateX(-50%);
+  
+  }
+  
+    .headerTitleDiv {
+      padding: 50px 0 20px 0;
+      /* margin: 0 auto; */
+      /* max-width: 1100px; */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+    .headerTitle {
+      font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
+      font-size: 100px;
+      
+    }
+  
+    .headerIcon {
+      position: absolute;
+      top: 385px;      
+      left: 1px;    
+      width: 160px;
+     
+      pointer-events: none;
+  }
+  
+  .headerIconSmall {
+   display: none
+    
+  }
+    
+
+  @media (max-width: 1024px) {
+
+    .headerTitle {
+      
+      font-size: 80px;
+      
+    }
+
+}
+
+@media (max-width: 920px) {
+
+    .headerTitle {
+      
+      font-size: 50px;
+      
+    }
+    .mealplanSlogen {
+        /* font-family: "Damion", cursive; */
+        /* font-family: "Caveat", cursive; */
+       
+        font-size: 34px;
+    
+        
+      }
+
+    .headerTitleDiv{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        padding: 20px 10px;
+        }
+      
+        .headerIcon {
+          display: none;
+        }
+      
+        .headerIconSmall {
+          display: block;
+          /* position: absolute; */
+          /* top: 400px;      
+          left: 1px;     */
+          position: static;
+          height: auto;
+          width: 40px;
+          object-fit: contain;
+          transform: translateY(-6px);
+          
+      }}
+
+
+      @media (max-width: 768px) {
+
+        .mealplanSlogen {
+            /* font-family: "Damion", cursive; */
+            /* font-family: "Caveat", cursive; */
+            font-family: "Waiting for the Sunrise", cursive;
+            font-weight: 800;
+            font-size: 24px;
+            /* color: #ffff; */
+            color: #f47d31;
+            white-space: nowrap;
+            letter-spacing: 1px;
+            line-height: 1;
+            transform: translateX(-50%) translateY(-2px);
+            display: flex;
+            align-items: center;
+            /* margin-bottom: 80px; */
+          }
+
+
+       }
+
+      
+
+.headerBgVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0; 
+  /* filter: blur(1.01px); */
+  object-position:  left top;
+}
+
+
+.headerOverlay {
+  position: relative;
+  z-index: 1;
+}
+
