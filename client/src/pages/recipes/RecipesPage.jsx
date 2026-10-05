@@ -42,7 +42,7 @@ useEffect(() => {
     }
     const r = await axios.get(url);
 
-  setRecipes(r.data); 
+    setRecipes(Array.isArray(r.data) ? r.data : (r.data?.recipes || []));
   };
   fetchData();
 }, [search, user, recipeScope])

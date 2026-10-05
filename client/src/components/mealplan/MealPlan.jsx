@@ -40,8 +40,9 @@ useEffect(() => {
       // 2. Korábbi ADMIN tervek mindenki számára
       const pastRes = await axios.get(`${process.env.REACT_APP_API_URL}/mealplans?type=admin`);
       
-      // Kiszűrjük az aktívat, hogy ne legyen duplázódás
-      const past = (pastRes.data || []).filter((p) => !p.isActive);
+
+      const pastData = Array.isArray(pastRes.data) ? pastRes.data : (pastRes.data?.mealplans || []);
+      const past = pastData.filter((p) => !p.isActive);
       setPastPlans(past); 
     } catch (err) {
       console.log("Hiba a főoldali adatoknál:", err);
