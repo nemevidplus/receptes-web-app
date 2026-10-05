@@ -47,11 +47,10 @@ useEffect(() => {
   fetchData();
 }, [search, user, recipeScope])
 
-const scopeFilteredRecipes = recipes.filter((r) => {
+const scopeFilteredRecipes = (Array.isArray(recipes) ? recipes : []).filter((r) => {
   if (selectedType === "user-recipes") {
     return user && r.createdBy === user._id;
   } else {
-  
     return r.isPublic === true;
   }
 });
