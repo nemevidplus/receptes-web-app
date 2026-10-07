@@ -8,8 +8,9 @@ const postRoute = require("./routes/posts");
 const catRoute = require("./routes/categories");
 const recipeRoute = require("./routes/recipes");
 const mealPlanRoute = require("./routes/mealplans");
-const multer = require("multer")
-const path = require("path")
+const multer = require("multer");
+const path = require("path");
+
 
 dotenv.config();
 app.use(express.json());

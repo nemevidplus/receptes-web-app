@@ -135,5 +135,42 @@ router.get("/:id", async (req, res) => {
       res.status(500).json(err);
     }
   })
+
   
+  router.get("/sitemap.xml", async (req, res) => {
+    try {
+        const recipes = await Recipe.find({ isPublic: true }, '_id updatedAt');
+
+        let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n';
+        sitemap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+
+        // Főoldal
+        sitemap += '  <url>\n';
+        sitemap += '    <loc>https://milegyenavacsora.hu/</loc>\n';
+        sitemap += '    <changefreq>daily</changefreq>\n';
+        sitemap += '    <priority>1.0</priority>\n';
+        sitemap += '  </url>\n';
+
+        // Nyilvános receptek dinamikus listája
+        recipes.forEach(recipe => {
+            sitemap += '  <url>\n';
+            sitemap += `    <loc>https://milegyenavacsora.hu/recipe/${recipe._id}</loc>\n`;
+            if (recipe.updatedAt) {
+                sitemap += `    <lastmod>${new Date(recipe.updatedAt).toISOString()}</lastmod>\n`;
+            }
+            sitemap += '    <changefreq>weekly</changefreq>\n';
+            sitemap += '    <priority>0.8</priority>\n';
+            sitemap += '  </url>\n';
+        });
+
+        sitemap += '</urlset>';
+
+        res.header('Content-Type', 'application/xml');
+        res.send(sitemap);
+    } catch (err) {
+        console.error('Hiba a sitemap generálásakor:', err);
+        res.status(500).send('Szerver hiba');
+    }
+});
+
   module.exports = router;
