@@ -318,7 +318,7 @@ useEffect(() => {
   return (
 
     <div>
-    <Header title="Heti vacsoráink" bgImage={bg} slogan="saját recepteid・bevásárlólista・naptár"/>
+    <Header title="Heti vacsoráink a realitás talaján" bgImage={bg} slogan="saját recepteid・bevásárlólista・naptár"/>
    
           
           {plan && (plan.noteTitle || plan?.noteText || plan?.notePhoto ) && (
