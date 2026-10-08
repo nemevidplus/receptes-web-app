@@ -57,17 +57,18 @@ export default function AboutIntro() {
           <p className="aboutNote">  
           Mi ez az oldal?
           <br />
-          <ol> <li> Az oldalon receptek és heti vacsiterv látható inspiráció gyanánt. 🍎</li>
-  <li> A regisztrált felhasználók kedvükre módosíthatják ezt a tervet a saját receptjeikkel is. Bosszantó, ha nem szereted a szuvidált fürjtojást 😅</li>
-   <li> A kiválasztott receptekből bevásárlólista 🛒  és google naptár 🗓️ bejegyzés generálható.</li>
+          <ol> <li> Az oldalon receptek és heti vacsiterv látható inspiráció gyanánt. Néha elég, ha van ötlet. 🍎</li>
+  <li> A regisztrált felhasználók kedvükre módosíthatják ezt a tervet a saját receptjeikkel is. Az ötlet jó lehet, de nem ehettek valmi összetevőt, vagy más volt olcsóbb a piacon: cseréld ki. </li>
+   <li> A kiválasztott receptekből bevásárlólista 🛒  és google naptár 🗓️ bejegyzés generálható. Mindent a tempós működésért.</li>
   </ol>
   <br />   
  
           
           Bár nem vagyok gasztrós,  a "mi legyen a vacsora" témaköre 3 gyerek anyukájaként erősen foglalkoztat. 
+      
   <br />
 
-  Másik érdeklődési köröm a React programnyelv, ami autodidakta módon tanulok.
+  Másik érdeklődési köröm a React programozás, ami autodidakta módon tanulok.
   Az itt látható app a portfólió építésem része.
   <br />
   <br />
