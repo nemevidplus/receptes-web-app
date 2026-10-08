@@ -3,7 +3,7 @@ import "./header.css"
 import spoonFork from "../../assets/spoon-and-fork.png";
 import spoonForkSmall from "../../assets/spoon-and-fork.png";
 
-const Header = ({title, bgImage, bgVideo, slogan}) => {
+const Header = ({title, title2, bgImage, bgVideo, slogan}) => {
   return (
     <div>
           <div className="header" style={bgImage ? {backgroundImage: `url(${bgImage})`} : {} }>
@@ -29,7 +29,8 @@ const Header = ({title, bgImage, bgVideo, slogan}) => {
           <img className="headerIconSmall"
                                     src={spoonForkSmall}
                                     alt=""/>
-          <span className="headerTitle"> {title} </span></div>
+          <span className="headerTitle"> {title} </span>
+          <span className="headerTitleSmall"> {title2} </span></div>
     </div>
   )
 }
