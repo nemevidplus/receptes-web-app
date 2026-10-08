@@ -57,8 +57,8 @@ export default function AboutIntro() {
           <p className="aboutNote">  
           Mi ez az oldal?
           <br />
-          <ol> <li> Az oldalon receptek és heti vacsiterv látható inspiráció gyanánt. Néha elég, ha van ötlet. 🍎</li>
-  <li> A regisztrált felhasználók kedvükre módosíthatják ezt a tervet a saját receptjeikkel is. Az ötlet jó lehet, de nem ehettek valmi összetevőt, vagy más volt olcsóbb a piacon: cseréld ki. </li>
+          <ol> <li> Az oldalon receptek és heti vacsiterv látható inspiráció gyanánt. Néha elég, ha van egy ötlet. 🍎</li>
+  <li> A regisztrált felhasználók kedvükre módosíthatják ezt a tervet a saját receptjeikkel is. Ha nem ehettek valami összetevőt, más volt olcsóbb a piacon: könnyen kicserélheted. </li>
    <li> A kiválasztott receptekből bevásárlólista 🛒  és google naptár 🗓️ bejegyzés generálható. Mindent a tempós működésért.</li>
   </ol>
   <br />   
