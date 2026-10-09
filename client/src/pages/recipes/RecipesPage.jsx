@@ -32,6 +32,8 @@ const tabs = [
   { id: "egyedeny", title: "Mosogatás barát" },
   { id: "krem", title: "Krémek" },
   { id: "mealprep", title: "Mealprep" },
+  { id: "maradek", title: "Maradékmentés" },
+
 ];
 
 useEffect(() => {
@@ -108,6 +110,9 @@ const filteredRecipes = scopeFilteredRecipes.filter((r) => {
 
   if (selectedType === "mealprep") {
     return tags?.includes("mealprep") || tags?.includes("előző nap");
+  }
+  if (selectedType === "maradek") {
+    return tags?.includes("maradék mentés") || tags?.includes("maradék");
   }
 
   return true;
