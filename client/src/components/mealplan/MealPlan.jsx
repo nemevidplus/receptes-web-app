@@ -29,6 +29,8 @@ const [mobileActiveId, setMobileActiveId] = useState(null);
   const { user } = useContext(Context);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
+  
+
 
 useEffect(() => {
   const fetchPlan = async () => {
@@ -733,14 +735,17 @@ useEffect(() => {
             />
 
             <div className="modalRecipeGrid">
-              {filteredRecipes.map((r) => (
+              {filteredRecipes.map((r) => {
+
+                const imgSrc = r.photo ? PF + r.photo : defaultImg;
+                return (
                 <div key={r._id} className="modalRecipeCard" onClick={() => handleAddRecipe(r._id)}>
-                  <img src={process.env.REACT_APP_PUBLIC_FOLDER + r.photo} alt="" />
+                  <img src={imgSrc} alt="" />
                   <div className="modalRecipeInfo">
                     <h4>{r.title}</h4>
                   </div>
                 </div>
-              ))}
+        )})}
             </div>
           </div>
         </div>
