@@ -99,7 +99,7 @@ const filteredRecipes = scopeFilteredRecipes.filter((r) => {
   }
 
   if (selectedType === "egyedeny") {
-    return tags?.includes("mosogatás") || tags?.includes("egyedeny");
+    return tags?.includes("mosogatás") || tags?.includes("egyedény");
   }
 
   if (selectedType === "krem") {
