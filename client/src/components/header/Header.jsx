@@ -29,8 +29,9 @@ const Header = ({title, title2, bgImage, bgVideo, slogan}) => {
           <img className="headerIconSmall"
                                     src={spoonForkSmall}
                                     alt=""/>
+          <div className="headerTitles">
           <span className="headerTitle"> {title} </span>
-          <span className="headerTitleSmall"> {title2} </span></div>
+          <span className="headerTitleSmall"> {title2} </span></div></div>
     </div>
   )
 }
