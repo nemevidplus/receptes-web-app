@@ -2,6 +2,9 @@ import "./aboutIntro.css";
 import { init } from "ityped";
 import { useEffect, useRef } from "react";
 import evi2 from "../../assets/evi-bw.png";
+import evi from "../../assets/evi-bw_c.jpg";
+import evic from "../../assets/evi_c.jpg";
+
 import heart from "../../assets/hearts.png";
 import bg from "../../assets/bg2.png";
 // import down from "../../assets/down.png";
@@ -44,7 +47,7 @@ export default function AboutIntro() {
       <div ref={leftRef} className="aboutIntroLeft revealLeft">
         <div className="aboutImgContainer"></div>
         {/* <img className="background" src={bg} alt="dekoráció" /> */}
-        <img className="aboutImg" src={evi2} alt="Portré" />
+        <img className="aboutImg" src={evic} alt="Portré" />
       </div>
 
       <div ref={rightRef} className="aboutIntroRight revealRight">

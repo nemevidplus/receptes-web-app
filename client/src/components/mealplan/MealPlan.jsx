@@ -3,6 +3,7 @@ import axios from "axios";
 import "./mealplan.css"
 import Header from "../header/Header";
 import bg from "../../assets/mealplan19.jpg";
+import bgc from "../../assets/mealplan19.png";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../../context/Context";
@@ -320,7 +321,7 @@ useEffect(() => {
   return (
 
     <div>
-    <Header title="Heti vacsoráink" title2="a realitás talaján" bgImage={bg} slogan="saját recepteid・bevásárlólista・naptár"/>
+    <Header title="Heti vacsoráink" title2="a realitás talaján" bgImage={bgc} slogan="saját recepteid・bevásárlólista・naptár"/>
    
           
           {plan && (plan.noteTitle || plan?.noteText || plan?.notePhoto ) && (

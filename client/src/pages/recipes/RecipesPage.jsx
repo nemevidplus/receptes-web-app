@@ -4,6 +4,8 @@ import Recipes from "../../components/recipes/Recipes";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Header from "../../components/header/Header";
 import bg from "../../assets/receptek.jpeg";
+import bgc from "../../assets/receptek.png";
+
 import axios from "axios"
 import { useLocation } from "react-router-dom";
 import { Context } from "../../context/Context";
@@ -122,7 +124,7 @@ const filteredRecipes = scopeFilteredRecipes.filter((r) => {
 
   return (
     <>
-<Header title="Receptek" bgImage={bg}/>
+<Header title="Receptek" bgImage={bgc}/>
 
  <div className="mobileTagCloud">
  <div className="sidebarItem">
