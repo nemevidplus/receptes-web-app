@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for receptes-web-app-3stdxw on 2026-11-02T10:58:43Z
+# fly.toml app configuration file generated for receptes-web-app on 2026-11-02T11:37:44Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'receptes-web-app-3stdxw'
+app = 'receptes-web-app'
 primary_region = 'fra'
 
 [build]
