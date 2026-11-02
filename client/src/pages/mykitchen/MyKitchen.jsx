@@ -1,7 +1,7 @@
 import "./mykitchen.css";
 import "../../components/mealplan/mealplan.css"
 import Header from "../../components/header/Header";
-import bgVideo from "../../assets/mykitchen-video.mp4";
+// import bgVideo from "../../assets/mykitchen-video.mp4";
 
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
@@ -304,7 +304,7 @@ useEffect(() => {
 <Header 
 title={`${user.username} vacsiterve`}
 bgImage={bg}
-bgVideo={bgVideo} 
+bgVideo="https://images.pexels.com/video-files/6398841/6398841-hd_1920_1080_25fps.mp4"
 style={{ backgroundPosition:"center 67%" }}/>
             
           {/* ✅ Heti note blokk */}

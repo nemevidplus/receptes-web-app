@@ -4,7 +4,7 @@ import "./writerecipe.css";
 import Header from "../../components/header/Header";
 import axios from "axios";
 import bg from "../../assets/mealplan16.jpg";
-import bgVideo from "../../assets/fozz-video.mp4";
+// import bgVideo from "../../assets/fozz-video.mp4";
 
 export default function WriteRecipe() {
 
@@ -104,7 +104,7 @@ const {user} = useContext (Context);
 <Header 
 title="Saját recepted" 
 bgImage={bg}
-bgVideo={bgVideo} 
+bgVideo="https://images.pexels.com/video-files/5674169/5674169-hd_1920_1080_25fps.mp4"
 className="writeRecipeHeader" style={{ backgroundPosition:"center 67%" }}/>
    
    
