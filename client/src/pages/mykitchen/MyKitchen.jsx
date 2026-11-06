@@ -300,7 +300,7 @@ useEffect(() => {
 
 
     return(
-
+ <div>
       <div style={{ position: 'relative', overflow: 'hidden', width: '100%', minHeight: '60vh' }}>
   <iframe
     src="https://www.youtube.com/embed/hrNKNSjye2M?autoplay=1&mute=1&loop=1&playlist=hrNKNSjye2M&controls=0&showinfo=0&autohide=1&modestbranding=1"
@@ -336,8 +336,8 @@ useEffect(() => {
 title={`${user.username} vacsiterve`}
 bgImage={bg}
 bgVideo="https://images.pexels.com/video-files/6398841/6398841-hd_1920_1080_25fps.mp4"
-style={{ backgroundPosition:"center 67%" }}/>
-             */}
+style={{ backgroundPosition:"center 67%" }}/> */}
+            
           {/* ✅ Heti note blokk */}
           {plan && plan.noteTitle  && (
            
