@@ -300,13 +300,44 @@ useEffect(() => {
 
 
     return(
-      <div >
+
+      <div style={{ position: 'relative', overflow: 'hidden', width: '100%', minHeight: '60vh' }}>
+  <iframe
+    src="https://www.youtube.com/embed/hrNKNSjye2M?autoplay=1&mute=1&loop=1&playlist=hrNKNSjye2M&controls=0&showinfo=0&autohide=1&modestbranding=1"
+    title="MyKitchen Háttérvideó"
+    frameBorder="0"
+    allow="autoplay; encrypted-media"
+    style={{
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      width: '100vw',
+      height: '56.25vw',
+      minHeight: '100vh',
+      minWidth: '177.77vh',
+      transform: 'translate(-50%, -50%)',
+      pointerEvents: 'none',
+      zIndex: 0,
+      objectFit: 'cover',
+    }}
+  ></iframe>
+
+  <div style={{ position: 'relative', zIndex: 1 }}>
+    <Header 
+      title={`${user.username} vacsiterve`}
+      bgImage={bg}
+      style={{ backgroundPosition: "center 67%" }}
+    />
+  </div>
+</div>
+
+      {/* <div >
 <Header 
 title={`${user.username} vacsiterve`}
 bgImage={bg}
 bgVideo="https://images.pexels.com/video-files/6398841/6398841-hd_1920_1080_25fps.mp4"
 style={{ backgroundPosition:"center 67%" }}/>
-            
+             */}
           {/* ✅ Heti note blokk */}
           {plan && plan.noteTitle  && (
            
