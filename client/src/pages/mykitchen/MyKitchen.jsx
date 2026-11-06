@@ -301,9 +301,9 @@ useEffect(() => {
 
     return(
  <div>
-      <div style={{ position: 'relative', overflow: 'hidden', width: '100%', minHeight: '60vh' }}>
+      <div style={{ position: 'relative', overflow: 'hidden', width: '100%', minHeight: '60vh', backgroundColor: '#000' }}>
   <iframe
-    src="https://www.youtube.com/embed/hrNKNSjye2M?autoplay=1&mute=1&loop=1&playlist=hrNKNSjye2M&controls=0&showinfo=0&autohide=1&modestbranding=1"
+    src="https://www.youtube.com/embed/hrNKNSjye2M?autoplay=1&mute=1&loop=1&playlist=hrNKNSjye2M&controls=0&showinfo=0&autohide=1&modestbranding=1&disablekb=1&fs=0&playsinline=1&rel=0"
     title="MyKitchen Háttérvideó"
     frameBorder="0"
     allow="autoplay; encrypted-media"
