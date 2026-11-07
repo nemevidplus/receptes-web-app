@@ -1,3 +1,17 @@
+
+.headerYouTubeVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* Letiltja a kattintást, így nem ugrik fel a pause gomb */
+  object-fit: cover;
+  z-index: 0;
+}
+
+
 .header {
   
 
@@ -12,6 +26,7 @@
     /* overflow: hidden; */
 
      position: relative;
+     overflow: hidden;
      display: block;
      filter: sepia(0.4) contrast(1.1) brightness(0.85) saturate(1.3);
     transition: filter 0.25s ease;
