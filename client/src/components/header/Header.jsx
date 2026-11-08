@@ -10,7 +10,7 @@ const Header = ({title, title2, bgImage, bgVideo, youtubeId,  slogan}) => {
             
           {youtubeId && (
             <iframe
-                src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&loop=1&playlist=${youtubeId}&controls=0&showinfo=0&autohide=1&modestbranding=1&disablekb=1&fs=0&playsinline=1&iv_load_policy=3&rel=0`}
+                src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&loop=1&playlist=${youtubeId}&controls=0&showinfo=0&autohide=1&modestbranding=1&disablekb=1&fs=0&playsinline=1&iv_load_policy=3&rel=0&background=1`}
                 title="Háttérvideó"
                 frameBorder="0"
                 allow="autoplay; encrypted-media"
