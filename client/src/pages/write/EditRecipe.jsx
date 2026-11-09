@@ -22,7 +22,7 @@ export default function EditRecipe() {
   useEffect(() => {
     const load = async () => {
       try {
-        const res = await axios.get(process.env.REACT_APP_API_URL + "/recipes/" + id);
+        const res = await axios.get( "/recipes/" + id);
         const r = res.data;
 
         setTitle(r.title || "");
@@ -71,7 +71,7 @@ export default function EditRecipe() {
       data.append("file", file);
 
       try {
-        await axios.post(process.env.REACT_APP_API_URL + "/upload", data);
+        await axios.post( "/upload", data);
         updatedRecipe.photo = filename;
       } catch (err) {
         console.log("Upload failed:", err?.response?.data || err.message);
@@ -80,7 +80,7 @@ export default function EditRecipe() {
     }
 
     try {
-      const res = await axios.put( process.env.REACT_APP_API_URL + "/recipes/" + id, updatedRecipe);
+      const res = await axios.put(  "/recipes/" + id, updatedRecipe);
       alert("Mentve ✅");
       navigate("/recipe/" + res.data._id);
     } catch (err) {

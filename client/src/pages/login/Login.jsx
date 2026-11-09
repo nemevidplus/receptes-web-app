@@ -15,7 +15,7 @@ export default function Login() {
    e.preventDefault();
    dispatch({type:"LOGIN_START"});
    try{
-        const res = await axios.post( process.env.REACT_APP_API_URL + "/auth/login", {
+        const res = await axios.post( "/auth/login", {
           username: userRef.current.value,
           password: passwordRef.current.value,
         })

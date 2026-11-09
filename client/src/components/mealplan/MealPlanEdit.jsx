@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import axios from "axios";
+import axios from "../../utils/axiosInstance";
 import { Context } from "../../context/Context";
 import "./mealplanEdit.css";
 
@@ -14,7 +14,7 @@ export default function MealPlanEdit() {
     const load = async () => {
       try {
         const query = user?.role === "admin" ? "?type=admin" : `?userId=${user?._id}`;
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/mealplans/current${query}`);
+        const res = await axios.get(`/mealplans/current${query}`);
         setPlan(res.data);
         setNoteTitle(res.data?.noteTitle || "");
         setNoteText(res.data?.noteText || "");
@@ -27,7 +27,7 @@ export default function MealPlanEdit() {
 
   const handleSave = async () => {
     try {
-      const res = await axios.put(`${process.env.REACT_APP_API_URL}/mealplans/current/note?userId=${user._id}`, {
+      const res = await axios.put(`/mealplans/current/note?userId=${user._id}`, {
         noteTitle,
         noteText,
         noteAuthor: user?.username || "ismeretlen",

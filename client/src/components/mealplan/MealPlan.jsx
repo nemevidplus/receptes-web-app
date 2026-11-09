@@ -37,11 +37,11 @@ useEffect(() => {
   const fetchPlan = async () => {
     try {
       // 1. Aktuális ADMIN terv mindenki számára
-      const currentRes = await axios.get(`${process.env.REACT_APP_API_URL}/mealplans/current?type=admin`);
+      const currentRes = await axios.get("/mealplans/current?type=admin");
       setPlan(currentRes.data);
 
       // 2. Korábbi ADMIN tervek mindenki számára
-      const pastRes = await axios.get(`${process.env.REACT_APP_API_URL}/mealplans?type=admin`);
+      const pastRes = await axios.get("/mealplans?type=admin");
       
 
       const pastData = Array.isArray(pastRes.data) ? pastRes.data : (pastRes.data?.mealplans || []);
@@ -102,7 +102,7 @@ useEffect(() => {
 
   const handleRemoveItem = async (itemId) => {
     try {
-      const res = await axios.delete(`${process.env.REACT_APP_API_URL}/mealplans/${plan._id}/items/${itemId}`);
+      const res = await axios.delete(`/mealplans/${plan._id}/items/${itemId}`);
       setPlan(res.data);
     } catch (err) {
       console.log("Remove failed:", err?.response?.data || err.message);
@@ -110,7 +110,7 @@ useEffect(() => {
   };
   const handleDayUpdate = async (itemId, newDay) => {
     try {
-      const res = await axios.put(`${process.env.REACT_APP_API_URL}/mealplans/${plan._id}/items/${itemId}`, {
+      const res = await axios.put(`/mealplans/${plan._id}/items/${itemId}`, {
         day: newDay
       });
       setPlan(res.data); 
@@ -121,7 +121,7 @@ useEffect(() => {
 
   const handleAddRecipe = async (recipeId) => {
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API_URL}/mealplans/${plan._id}/items`, {
+      const res = await axios.post(`/mealplans/${plan._id}/items`, {
         recipeId: recipeId,
         day: "Választott",
         slot: "Vacsora"
@@ -137,10 +137,10 @@ useEffect(() => {
 
   const handleActivatePlan = async (planId) => {
     try {
-      const res = await axios.put(`${process.env.REACT_APP_API_URL}/mealplans/${planId}/activate`);
+      const res = await axios.put(`/mealplans/${planId}/activate`);
       setPlan(res.data);
   
-      const all = await axios.get(process.env.REACT_APP_API_URL + "/mealplans");
+      const all = await axios.get( "/mealplans");
       const past = (all.data || []).filter((p) => !p.isActive);
       setPastPlans(past);
     } catch (err) {
@@ -154,8 +154,8 @@ useEffect(() => {
         try {
 
           const url = user 
-          ?  process.env.REACT_APP_API_URL + `/recipes?userId=${user._id}`
-          : process.env.REACT_APP_API_URL + "/recipes";
+          ?  `/recipes?userId=${user._id}`
+          :  "/recipes";
           const res = await axios.get(url);
           setAllRecipes(res.data);
         }catch(err){
@@ -287,7 +287,7 @@ useEffect(() => {
   const handleCopyToMyPlan = async () => {
     try {
       // Elküldjük az admin tervét a usernek
-      await axios.post(`${process.env.REACT_APP_API_URL}/mealplans/copy`, {
+      await axios.post(`/mealplans/copy`, {
         adminPlanId: plan._id,
         userId: user._id
       });
@@ -304,7 +304,7 @@ useEffect(() => {
     if (!window.confirm("Biztosan törölni szeretnéd ezt a heti menüt?")) return;
     try {
 
-     await axios.delete (`${process.env.REACT_APP_API_URL}/mealplans/${planId}`)
+     await axios.delete (`/mealplans/${planId}`)
       // setPlan(res.data);
       if (plan && plan._id === planId) {
         setPlan(null);

@@ -40,11 +40,11 @@ useEffect(() => {
   
       try {
         // 1. Saját aktuális terv (vagy fallback adminéra a backend logika szerint)
-        const currentRes = await axios.get(`${process.env.REACT_APP_API_URL}/mealplans/current?userId=${user._id}`);
+        const currentRes = await axios.get(`/mealplans/current?userId=${user._id}`);
         setPlan(currentRes.data);
   
         // 2. KIZÁRÓLAG a saját korábbi terveim
-        const pastRes = await axios.get(`${process.env.REACT_APP_API_URL}/mealplans?userId=${user._id}`);
+        const pastRes = await axios.get(`/mealplans?userId=${user._id}`);
         
         const past = (pastRes.data || []).filter((p) => !p.isActive);
         setPastPlans(past); 
@@ -102,7 +102,7 @@ useEffect(() => {
   
     const handleRemoveItem = async (itemId) => {
       try {
-        const res = await axios.delete(`${process.env.REACT_APP_API_URL}/mealplans/${plan._id}/items/${itemId}`);
+        const res = await axios.delete(`/mealplans/${plan._id}/items/${itemId}`);
         setPlan(res.data);
       } catch (err) {
         console.log("Remove failed:", err?.response?.data || err.message);
@@ -110,7 +110,7 @@ useEffect(() => {
     };
     const handleDayUpdate = async (itemId, newDay) => {
       try {
-        const res = await axios.put(`${process.env.REACT_APP_API_URL}/mealplans/${plan._id}/items/${itemId}`, {
+        const res = await axios.put(`/mealplans/${plan._id}/items/${itemId}`, {
           day: newDay
         });
         setPlan(res.data); // Frissítjük a nézetet az új adattal
@@ -121,7 +121,7 @@ useEffect(() => {
   
     const handleAddRecipe = async (recipeId) => {
       try {
-        const res = await axios.post(`${process.env.REACT_APP_API_URL}/mealplans/${plan._id}/items`, {
+        const res = await axios.post(`/mealplans/${plan._id}/items`, {
           recipeId: recipeId,
           day: "Választott",
           slot: "Vacsora"
@@ -143,8 +143,8 @@ useEffect(() => {
           try {
   
             const url = user 
-            ?  process.env.REACT_APP_API_URL + `/recipes?userId=${user._id}`
-            : process.env.REACT_APP_API_URL + "/recipes";
+            ?   `/recipes?userId=${user._id}`
+            :  "/recipes";
             
             const res = await axios.get(url);
             setAllRecipes(res.data);
@@ -279,12 +279,12 @@ useEffect(() => {
     if (!window.confirm("Biztosan törölni szeretnéd ezt a heti menüt?")) return;
   
     try {
-      await axios.delete(`${process.env.REACT_APP_API_URL}/mealplans/${planIdToDelete}`);
+      await axios.delete(`/mealplans/${planIdToDelete}`);
       
       // Ha az aktuális tervet töröltük ki
       if (planIdToDelete === plan?._id) {
         // Újratöltjük a /current-et, hogy a fallback admin terv visszajöjjön a kijelzőre
-        const currentRes = await axios.get(`${process.env.REACT_APP_API_URL}/mealplans/current?userId=${user._id}`);
+        const currentRes = await axios.get(`/mealplans/current?userId=${user._id}`);
         setPlan(currentRes.data);
       } else {
         // Ha egy korábbi tervet töröltünk, kiszedjük a pastPlans state-ből
