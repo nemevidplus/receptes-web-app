@@ -46,14 +46,9 @@ app.use("/api/mealplans", mealPlanRoute);
 
 const PORT = process.env.PORT || 5002;
 
-// app.listen(PORT, () => {
-//     console.log("backend is running.")
-// })
+app.listen(PORT, () => {
+    console.log("backend is running.")
+})
 
-// if (process.env.NODE_ENV !== "production") {
-//     app.listen(PORT, () => {
-//         console.log("backend is running on port " + PORT);
-//     });
-// }
 
-module.exports = app;
+
