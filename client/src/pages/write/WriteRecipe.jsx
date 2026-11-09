@@ -84,14 +84,14 @@ const {user} = useContext (Context);
       newRecipe.photo = filename;
 
       try {
-        await axios.post("/upload", data);
+        await axios.post(process.env.RREACT_APP_API_URL + "/upload", data);
       } catch (err) {
         console.log("Upload failed", err);
       }
     }
 
     try {
-      const res = await axios.post("/recipes", newRecipe);
+      const res = await axios.post(process.env.REACT_APP_API_URL + "/recipes", newRecipe);
       
       window.location.replace("/recipe/" + res.data._id);
     } catch (err) {

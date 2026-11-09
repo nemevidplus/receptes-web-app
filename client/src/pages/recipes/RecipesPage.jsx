@@ -40,7 +40,7 @@ const tabs = [
 
 useEffect(() => {
   const fetchData = async () => {
-    let url = user ? `/recipes?userId=${user._id}` : "/recipes";
+    let url = user ? `${process.env.REACT_APP_API_URL}/recipes?userId=${user._id}` : "/recipes";
     if (user?.role === "admin" && recipeScope === "public") {
       url += "&scope=public";
     }
