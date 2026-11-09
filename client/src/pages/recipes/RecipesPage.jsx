@@ -6,7 +6,7 @@ import Header from "../../components/header/Header";
 import bg from "../../assets/receptek.jpeg";
 import bgc from "../../assets/receptek.png";
 
-import axios from "axios"
+import axios from "../../utils/axiosInstance";
 import { useLocation } from "react-router-dom";
 import { Context } from "../../context/Context";
 

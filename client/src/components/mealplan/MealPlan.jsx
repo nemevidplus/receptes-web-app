@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import axios from "axios";
+import axios from "../../utils/axiosInstance";
 import "./mealplan.css"
 import Header from "../header/Header";
 import bg from "../../assets/mealplan19.jpg";

@@ -4,7 +4,7 @@ import Header from "../../components/header/Header";
 // import bgVideo from "../../assets/mykitchen-video.mp4";
 
 import { useEffect, useRef, useState } from "react";
-import axios from "axios";
+import axios from "../../utils/axiosInstance";
 import "../../components/header/header.css"
 import bg from "../../assets/mealplan17.jpg";
 import { Link } from "react-router-dom";

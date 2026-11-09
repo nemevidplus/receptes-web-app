@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import {Context} from "../../context/Context";
 import "./writerecipe.css";
 import Header from "../../components/header/Header";
-import axios from "axios";
+import axios from "../../utils/axiosInstance";
 import bg from "../../assets/mealplan16.jpg";
 // import bgVideo from "../../assets/fozz-video.mp4";
 

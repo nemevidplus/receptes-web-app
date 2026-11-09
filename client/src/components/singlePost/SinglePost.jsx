@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../../utils/axiosInstance";
 import { useEffect } from "react";
 import "./singlePost.css";
 import { Link, useLocation } from "react-router-dom";

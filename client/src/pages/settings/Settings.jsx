@@ -2,7 +2,7 @@ import Sidebar from "../../components/sidebar/Sidebar"
 import "./settings.css"
 import { useContext, useState } from 'react';
 import { Context } from '../../context/Context';
-import axios from "axios";
+import axios from "../../utils/axiosInstance";
 
 export default function Settings() {
 
