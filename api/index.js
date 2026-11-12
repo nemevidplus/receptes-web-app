@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors');
 const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
@@ -13,6 +14,12 @@ const path = require("path");
 
 
 dotenv.config();
+
+app.use(cors({
+    origin: ['https://www.milegyenavacsora.hu'], 
+    credentials: true
+  }));
+
 app.use(express.json());
 
 app.use("/images", express.static(path.join(__dirname, "/images")))
