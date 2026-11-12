@@ -15,8 +15,26 @@ const path = require("path");
 
 dotenv.config();
 
-app.use(cors({
-    origin: ['https://www.milegyenavacsora.hu'], 
+// app.use(cors({
+//     origin: ['https://www.milegyenavacsora.hu', 'http://localhost:3000'], 
+//     credentials: true
+//   }));
+
+const allowedOrigins = [
+    'https://www.milegyenavacsorla.hu',
+    'http://localhost:3000',
+    'http://localhost:5173'
+  ];
+  
+  app.use(cors({
+    origin: function (origin, callback) {
+     
+      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error('CORS policy violation'));
+      }
+    },
     credentials: true
   }));
 

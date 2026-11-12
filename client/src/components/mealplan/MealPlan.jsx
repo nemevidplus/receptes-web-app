@@ -52,7 +52,7 @@ useEffect(() => {
     }
   };
   fetchPlan();
-}, [user]); // Frissüljön, ha be/kijelentkezik valaki
+}, [user]); 
 
 
   useEffect(() => {
@@ -286,7 +286,7 @@ useEffect(() => {
 
   const handleCopyToMyPlan = async () => {
     try {
-      // Elküldjük az admin tervét a usernek
+      
       await axios.post(`/mealplans/copy`, {
         adminPlanId: plan._id,
         userId: user._id
