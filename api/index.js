@@ -21,7 +21,7 @@ dotenv.config();
 //   }));
 
 const allowedOrigins = [
-    'https://www.milegyenavacsorla.hu',
+    'https://www.milegyenavacsora.hu',
     'http://localhost:3000',
     'http://localhost:5173'
   ];
