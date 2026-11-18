@@ -9,7 +9,7 @@ const postRoute = require("./routes/posts");
 const catRoute = require("./routes/categories");
 const recipeRoute = require("./routes/recipes");
 const mealPlanRoute = require("./routes/mealplans");
-const multer = require("multer");
+const upload = require('./cloudinaryUpload');
 const path = require("path");
 
 
@@ -47,19 +47,22 @@ mongoose.connect(process.env.MONGO_URL
 .then(() => console.log("MongoDB connected"))
 .catch(err => console.log(err));
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, "images");
-    },
-    filename: (req, file, cb) => {
-        cb(null, req.body.name);
-        // cb(null, "hello.jpg");
-    }
-});
 
-const upload = multer({storage:storage});
-app.post("/api/upload", upload.single("file"), (req,res) =>{
-    res.status(200).json("File has been uploaded");
+
+app.post("/api/upload", upload.single("file"), (req, res) => {
+  try {
+      
+      if (!req.file) {
+          return res.status(400).json({ error: "Nem érkezett fájl!" });
+      }
+      
+      res.status(200).json({
+          message: "File has been uploaded to Cloudinary",
+          url: req.file.path 
+      });
+  } catch (error) {
+      res.status(500).json({ error: error.message });
+  }
 });
 
 app.use("/api/auth", authRoute);
