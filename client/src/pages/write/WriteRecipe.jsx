@@ -78,13 +78,14 @@ const {user} = useContext (Context);
 
     if (file) {
       const data = new FormData();
-      const filename = Date.now() + "_" + file.name;
-      data.append("name", filename);
+      
+     
       data.append("file", file);
-      newRecipe.photo = filename;
+     
 
       try {
-        await axios.post( "/upload", data);
+        const uploadRes =await axios.post( "/upload", data);
+        newRecipe.photo = uploadRes.data.url;
       } catch (err) {
         console.log("Upload failed", err);
       }

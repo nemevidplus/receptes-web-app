@@ -63,16 +63,15 @@ export default function EditRecipe() {
       (k) => updatedRecipe[k] === undefined && delete updatedRecipe[k]
     );
 
-    // Ha új képet választottál, töltsd fel és írd be a photo mezőt
+    
     if (file) {
       const data = new FormData();
-      const filename = Date.now() + "_" + file.name;
-      data.append("name", filename);
+     
       data.append("file", file);
 
       try {
-        await axios.post( "/upload", data);
-        updatedRecipe.photo = filename;
+       const uploadRes=  await axios.post( "/upload", data);
+        updatedRecipe.photo = uploadRes.data.url;
       } catch (err) {
         console.log("Upload failed:", err?.response?.data || err.message);
         return;
@@ -91,13 +90,13 @@ export default function EditRecipe() {
   return (
     <div className="write">
       <div className="postImgWrapper">
-        {/* előnézet: új file, különben a régi kép */}
+      
         {file ? (
           <img className="writeImg" src={URL.createObjectURL(file)} alt="" />
         ) : currentPhoto ? (
           <img
             className="writeImg"
-            src={process.env.REACT_APP_PUBLIC_FOLDER + currentPhoto}
+            src={currentPhoto.startsWith("http") ? currentPhoto : process.env.REACT_APP_PUBLIC_FOLDER + currentPhoto}
             alt=""
           />
         ) : ( <img className="writeImg" src={defaultImg} alt="" />

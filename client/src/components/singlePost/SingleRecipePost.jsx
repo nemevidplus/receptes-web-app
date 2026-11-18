@@ -80,7 +80,9 @@ const handleDelete = async () => {
   if (!recipe) return null;
 
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-  const imgSrc = recipe.photo ? PF + recipe.photo : defaultImg;
+  const imgSrc = recipe.photo 
+    ? (recipe.photo.startsWith("http") ? recipe.photo : PF + recipe.photo) 
+    : defaultImg;
 
   return (
     <div className="singlePost">
