@@ -71,7 +71,12 @@ export default function EditRecipe() {
 
       try {
        const uploadRes=  await axios.post( "/upload", data);
-        updatedRecipe.photo = uploadRes.data.url;
+
+       const photoUrl = typeof uploadRes.data === "string" 
+      ? uploadRes.data 
+      : uploadRes.data.url;
+
+        updatedRecipe.photo = photoUrl;
       } catch (err) {
         console.log("Upload failed:", err?.response?.data || err.message);
         return;
