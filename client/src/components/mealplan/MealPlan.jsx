@@ -316,7 +316,13 @@ useEffect(() => {
       console.log("Remove failed:", err?.response?.data || err.message);
     }
   };
-
+  const getImgSrc = (photo) => {
+    if (!photo) return defaultImg;
+    if (photo.startsWith("http://") || photo.startsWith("https://")) {
+      return photo;
+    }
+    return (process.env.REACT_APP_PUBLIC_FOLDER || "") + photo;
+  };
 
   return (
 
@@ -332,7 +338,7 @@ useEffect(() => {
             {plan?.notePhoto && (
               <img
                 className="mealplanNoteImg"
-                src={process.env.REACT_APP_PUBLIC_FOLDER + plan.notePhoto}
+                src={getImgSrc(plan.notePhoto)}
                 alt=""
               />
             )}
@@ -361,7 +367,7 @@ useEffect(() => {
         const weekEnd = new Date(weekStart);
         weekEnd.setDate(weekEnd.getDate() + 6);
 
-        const res = await axios.post(`${process.env.REACT_APP_API_URL}/mealplans?userId=${user._id}`, {
+        const res = await axios.post(`/mealplans?userId=${user._id}`, {
           title: "Aktuális hét",
           weekStart,
           weekEnd,
@@ -424,7 +430,7 @@ useEffect(() => {
                 
          
                   <img
-                    src={item.recipeId.photo? PF + item.recipeId.photo :defaultImg}
+                    src={getImgSrc(item.recipeId.photo)}
                     alt=""
                   />
                   </Link>
@@ -681,7 +687,7 @@ useEffect(() => {
                 >
                 <div className="mealCard">
                 <img
-               src={item.recipeId.photo? PF + item.recipeId.photo :defaultImg}
+               src={getImgSrc(item.recipeId.photo)}
                 alt=""
                 />
                 <div className="mealCardBody">
@@ -738,7 +744,7 @@ useEffect(() => {
             <div className="modalRecipeGrid">
               {filteredRecipes.map((r) => {
 
-                const imgSrc = r.photo ? PF + r.photo : defaultImg;
+                const imgSrc = getImgSrc(r.photo);
                 return (
                 <div key={r._id} className="modalRecipeCard" onClick={() => handleAddRecipe(r._id)}>
                   <img src={imgSrc} alt="" />
