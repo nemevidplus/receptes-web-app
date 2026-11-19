@@ -33,17 +33,17 @@ export default function MyKitchen() {
     const { user } = useContext(Context);
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   
- // MyKitchen.jsx - useEffect csere:
+
 useEffect(() => {
     const fetchPlan = async () => {
       if (!user?._id) return;
   
       try {
-        // 1. Saját aktuális terv (vagy fallback adminéra a backend logika szerint)
+        
         const currentRes = await axios.get(`/mealplans/current?userId=${user._id}`);
         setPlan(currentRes.data);
   
-        // 2. KIZÁRÓLAG a saját korábbi terveim
+       
         const pastRes = await axios.get(`/mealplans?userId=${user._id}`);
         
         const past = (pastRes.data || []).filter((p) => !p.isActive);
@@ -126,9 +126,9 @@ useEffect(() => {
           day: "Választott",
           slot: "Vacsora"
         });
-        setPlan(res.data); // Frissíti a tervet a kijelzőn
-        setShowModal(false); // Bezárja a modalt
-        setSearchTerm(""); // Kiüríti a keresőt a következő alkalomra
+        setPlan(res.data); 
+        setShowModal(false); 
+        setSearchTerm(""); 
       } catch (err) {
         console.log("Hozzáadás hiba:", err);
       }
@@ -270,7 +270,7 @@ useEffect(() => {
   };
 
   const mealPlanDelete = async (planIdToDelete, isAdminPlan) => {
-    // Biztonsági gát: Ha a terv egy Admin terv, egy sima user ne tudja törölni!
+    
     if (isAdminPlan && user?.role !== "admin") {
       alert("Ez a központi adminisztrátori terv, ezt nem törölheted ki! Csak a saját magad által módosított menüt törölheted.");
       return;
@@ -281,13 +281,13 @@ useEffect(() => {
     try {
       await axios.delete(`/mealplans/${planIdToDelete}`);
       
-      // Ha az aktuális tervet töröltük ki
+     
       if (planIdToDelete === plan?._id) {
-        // Újratöltjük a /current-et, hogy a fallback admin terv visszajöjjön a kijelzőre
+       
         const currentRes = await axios.get(`/mealplans/current?userId=${user._id}`);
         setPlan(currentRes.data);
       } else {
-        // Ha egy korábbi tervet töröltünk, kiszedjük a pastPlans state-ből
+        
         setPastPlans((prev) => prev.filter((p) => p._id !== planIdToDelete));
       }
       
@@ -297,7 +297,13 @@ useEffect(() => {
       alert("Hiba történt a törlés során.");
     }
   };
-
+  const getImgSrc = (photo) => {
+    if (!photo) return defaultImg;
+    if (photo.startsWith("http://") || photo.startsWith("https://")) {
+      return photo;
+    }
+    return (PF || "") + photo;
+  };
 
     return(
  
@@ -357,7 +363,7 @@ useEffect(() => {
                           >
                             <div className="myKitchenMealCard">
                               <img
-                                src={item.recipeId.photo? PF + item.recipeId.photo :defaultImg}
+                                src={getImgSrc(item.recipeId.photo)}
                                 alt=""
                               />
                               <button 
@@ -559,7 +565,7 @@ useEffect(() => {
                 >
                 <div className="mealCard">
                 <img
-                src={item.recipeId.photo? PF + item.recipeId.photo :defaultImg}
+                src={getImgSrc(item.recipeId.photo)}
                 alt=""
                 />
                 <div className="mealCardBody">
@@ -620,8 +626,8 @@ useEffect(() => {
             <div className="modalRecipeGrid">
               {filteredRecipes.map((r) => {
                
-                const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-                const imgSrc = r.photo ? PF + r.photo : defaultImg;
+                {/* const PF = process.env.REACT_APP_PUBLIC_FOLDER; */}
+                const imgSrc = getImgSrc(r.photo);
                 return (
                 <div key={r._id} className="modalRecipeCard" onClick={() => handleAddRecipe(r._id)}>
                   <img src={imgSrc} alt="" />

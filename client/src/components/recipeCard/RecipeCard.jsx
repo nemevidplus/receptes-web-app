@@ -4,7 +4,15 @@ import defaultImg from "../../assets/food-default.jpg"
 
 export default function RecipeCard({ recipe }) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-  const imgSrc = recipe.photo ? PF + recipe.photo : defaultImg;
+  const getImgSrc = (photo) => {
+    if (!photo) return defaultImg;
+    if (photo.startsWith("http://") || photo.startsWith("https://")) {
+      return photo;
+    }
+    return (PF || "") + photo;
+  };
+
+  const imgSrc = getImgSrc(recipe.photo);
 
   return (
     <div className="recipePost"> 
