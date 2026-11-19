@@ -76,16 +76,35 @@ const {user} = useContext (Context);
 
   
 
-    if (file) {
-      const data = new FormData();
+    // if (file) {
+    //   const data = new FormData();
       
      
-      data.append("file", file);
+    //   data.append("file", file);
      
 
+    //   try {
+    //     const uploadRes =await axios.post( "/upload", data);
+    //     newRecipe.photo = uploadRes.data.url;
+    //   } catch (err) {
+    //     console.log("Upload failed", err);
+    //   }
+    // }
+
+    if (file) {
+      const data = new FormData();
+      data.append("file", file);
+
       try {
-        const uploadRes =await axios.post( "/upload", data);
-        newRecipe.photo = uploadRes.data.url;
+        const uploadRes = await axios.post("/upload", data);
+        const photoUrl =
+          typeof uploadRes.data === "string"
+            ? uploadRes.data
+            : uploadRes.data.url;
+
+        if (photoUrl) {
+          newRecipe.photo = photoUrl;
+        }
       } catch (err) {
         console.log("Upload failed", err);
       }
@@ -113,7 +132,9 @@ className="writeRecipeHeader" style={{ backgroundPosition:"center 67%" }}/>
 
 
     <div className="postImgWrapper">
-
+    {file && (
+          <img className="writeImg" src={URL.createObjectURL(file)} alt="" />
+        )}
       </div>
       <form className="writeForm" onSubmit={handleSubmit}>
         <div className="writeFormGroup">

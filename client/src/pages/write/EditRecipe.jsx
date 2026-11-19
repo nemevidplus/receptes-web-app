@@ -40,6 +40,58 @@ export default function EditRecipe() {
     load();
   }, [id]);
 
+  // const handleSave = async (e) => {
+  //   e.preventDefault();
+
+  //   const updatedRecipe = {
+  //     title,
+  //     mealType,
+  //     ingredients: ingredientsText
+  //       .split("\n")
+  //       .map((line) => line.trim())
+  //       .filter(Boolean),
+  //     instructions,
+  //     tags: tagsText
+  //       .split(",")
+  //       .map((t) => t.trim())
+  //       .filter(Boolean),
+  //     prepTime: prepTime === "" ? undefined : Number(prepTime),
+      
+  //   };
+
+  //   Object.keys(updatedRecipe).forEach(
+  //     (k) => updatedRecipe[k] === undefined && delete updatedRecipe[k]
+  //   );
+
+    
+  //   if (file) {
+  //     const data = new FormData();
+     
+  //     data.append("file", file);
+
+  //     try {
+  //      const uploadRes=  await axios.post( "/upload", data);
+
+  //      const photoUrl = typeof uploadRes.data === "string" 
+  //     ? uploadRes.data 
+  //     : uploadRes.data.url;
+
+  //       updatedRecipe.photo = photoUrl;
+  //     } catch (err) {
+  //       console.log("Upload failed:", err?.response?.data || err.message);
+  //       return;
+  //     }
+  //   }
+
+  //   try {
+  //     const res = await axios.put(  "/recipes/" + id, updatedRecipe);
+  //     alert("Mentve ✅");
+  //     navigate("/recipe/" + res.data._id);
+  //   } catch (err) {
+  //     console.log("Update failed:", err?.response?.data || err.message);
+  //   }
+  // };
+
   const handleSave = async (e) => {
     e.preventDefault();
 
@@ -56,35 +108,37 @@ export default function EditRecipe() {
         .map((t) => t.trim())
         .filter(Boolean),
       prepTime: prepTime === "" ? undefined : Number(prepTime),
-      
+      photo: currentPhoto, 
     };
 
-    Object.keys(updatedRecipe).forEach(
-      (k) => updatedRecipe[k] === undefined && delete updatedRecipe[k]
-    );
-
-    
+ 
     if (file) {
       const data = new FormData();
-     
       data.append("file", file);
 
       try {
-       const uploadRes=  await axios.post( "/upload", data);
+        const uploadRes = await axios.post("/upload", data);
+        
+        
+        const photoUrl = typeof uploadRes.data === "string" 
+          ? uploadRes.data 
+          : uploadRes.data.url;
 
-       const photoUrl = typeof uploadRes.data === "string" 
-      ? uploadRes.data 
-      : uploadRes.data.url;
-
-        updatedRecipe.photo = photoUrl;
+        if (photoUrl) {
+          updatedRecipe.photo = photoUrl;
+        }
       } catch (err) {
         console.log("Upload failed:", err?.response?.data || err.message);
         return;
       }
     }
 
+    Object.keys(updatedRecipe).forEach(
+      (k) => updatedRecipe[k] === undefined && delete updatedRecipe[k]
+    );
+
     try {
-      const res = await axios.put(  "/recipes/" + id, updatedRecipe);
+      const res = await axios.put("/recipes/" + id, updatedRecipe);
       alert("Mentve ✅");
       navigate("/recipe/" + res.data._id);
     } catch (err) {
