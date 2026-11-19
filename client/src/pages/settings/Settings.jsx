@@ -15,6 +15,14 @@ export default function Settings() {
     const [success, setSuccess] = useState(false);
  
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
+    const getProfileImgSrc = (pic) => {
+      if (!pic) return "";
+      if (pic.startsWith("http://") || pic.startsWith("https://")) {
+        return pic;
+      }
+      return (PF || "") + pic;
+    };
   
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -30,14 +38,24 @@ export default function Settings() {
       }
       if (file) {
         const data = new FormData();
-        const filename = Date.now() + file.name;
-        data.append("name", filename);
         data.append("file", file);
-        updatedUser.profilePic = filename;
         try {
-          await axios.post( "/upload", data);
-        } catch (err) {}
+          const uploadRes = await axios.post("/upload", data);
+          const photoUrl =
+            typeof uploadRes.data === "string"
+              ? uploadRes.data
+              : uploadRes.data?.url;
+
+          if (photoUrl) {
+            updatedUser.profilePic = photoUrl;
+          }
+        } catch (err) {
+          console.log("Upload failed:", err.response?.data || err.message);
+          dispatch({ type: "UPDATE_FAILURE" });
+          return;
+        }
       }
+ 
       try {
         const res = await axios.put( "/users/" + user._id, updatedUser);
         setSuccess(true);
@@ -59,7 +77,7 @@ export default function Settings() {
           <label>Fotó</label>
           <div className="settingsPP">
             <img
-              src={file ? URL.createObjectURL(file) : PF+user.profilePic}
+              src={file ? URL.createObjectURL(file) : getProfileImgSrc(user.profilePic)}
               alt=""
             />
             <label htmlFor="fileInput">

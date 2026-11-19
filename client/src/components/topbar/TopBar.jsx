@@ -13,6 +13,13 @@ export default function TopBar() {
 
   const{user, dispatch} = useContext(Context);
    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+   const getProfileImgSrc = (pic) => {
+    if (!pic) return "";
+    if (pic.startsWith("http://") || pic.startsWith("https://")) {
+      return pic;
+    }
+    return (PF || "") + pic;
+  };
   const [menuOpen, setMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -83,7 +90,7 @@ export default function TopBar() {
           <Link className="link" to="/settings">
             <img
               className="topImage"
-              src={ PF+user.profilePic}
+              src={getProfileImgSrc(user.profilePic)}
               alt=""
             />
           </Link>

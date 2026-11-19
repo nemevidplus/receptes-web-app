@@ -55,7 +55,7 @@ export default function AboutIntro() {
           <h2>Szia!</h2>
           <h1>nemevid vagyok</h1>
           <h3>
-           gyesen lévő <span ref={textRef}></span>
+           főállású <span ref={textRef}></span>
           </h3>
           <p className="aboutNote">  
           Mi ez az oldal?
